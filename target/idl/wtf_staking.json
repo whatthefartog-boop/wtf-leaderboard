@@ -1,0 +1,3010 @@
+{
+  "address": "5nnC6k6oJ5av7Ldm7EhS15JNXF4fpUPcUpYmb1gnTzbH",
+  "metadata": {
+    "name": "wtf_staking",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "WTF staking platform"
+  },
+  "instructions": [
+    {
+      "name": "accept_admin",
+      "discriminator": [
+        112,
+        42,
+        45,
+        90,
+        116,
+        181,
+        13,
+        170
+      ],
+      "accounts": [
+        {
+          "name": "new_admin",
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              },
+              {
+                "kind": "account",
+                "path": "pool.pool_id",
+                "account": "StakePool"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "activate_investor_boost",
+      "discriminator": [
+        26,
+        35,
+        82,
+        31,
+        132,
+        171,
+        184,
+        181
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              },
+              {
+                "kind": "account",
+                "path": "pool.pool_id",
+                "account": "StakePool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_stake",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  117,
+                  115,
+                  101,
+                  114,
+                  95,
+                  115,
+                  116,
+                  97,
+                  107,
+                  101,
+                  95,
+                  118,
+                  50
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "investor_record",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  105,
+                  110,
+                  118,
+                  101,
+                  115,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "presale",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  114,
+                  101,
+                  115,
+                  97,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "apply_fee_discount",
+      "discriminator": [
+        214,
+        170,
+        252,
+        122,
+        103,
+        82,
+        53,
+        251
+      ],
+      "accounts": [
+        {
+          "name": "caller",
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  108,
+                  97,
+                  116,
+                  102,
+                  111,
+                  114,
+                  109,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              },
+              {
+                "kind": "account",
+                "path": "pool.pool_id",
+                "account": "StakePool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "admin_wtf_position"
+        }
+      ],
+      "args": [
+        {
+          "name": "slot",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "buy_presale",
+      "discriminator": [
+        113,
+        18,
+        193,
+        68,
+        35,
+        36,
+        215,
+        8
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "presale",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  114,
+                  101,
+                  115,
+                  97,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "presale.mint",
+                "account": "PresaleConfig"
+              }
+            ]
+          }
+        },
+        {
+          "name": "presale_token_vault",
+          "writable": true
+        },
+        {
+          "name": "sol_treasury",
+          "writable": true
+        },
+        {
+          "name": "investor_record",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  105,
+                  110,
+                  118,
+                  101,
+                  115,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "buyer"
+              },
+              {
+                "kind": "account",
+                "path": "presale.mint",
+                "account": "PresaleConfig"
+              }
+            ]
+          }
+        },
+        {
+          "name": "vesting_schedule",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  118,
+                  101,
+                  115,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "buyer"
+              },
+              {
+                "kind": "account",
+                "path": "presale.mint",
+                "account": "PresaleConfig"
+              },
+              {
+                "kind": "account",
+                "path": "presale.total_sold",
+                "account": "PresaleConfig"
+              }
+            ]
+          }
+        },
+        {
+          "name": "vesting_vault",
+          "docs": [
+            "(Anchor's token `init` here uses too much memory and crashes the program)."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  118,
+                  101,
+                  115,
+                  116,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "vesting_schedule"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "sol_lamports",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "claim_rewards",
+      "discriminator": [
+        4,
+        144,
+        132,
+        71,
+        116,
+        23,
+        151,
+        80
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              },
+              {
+                "kind": "account",
+                "path": "pool.pool_id",
+                "account": "StakePool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_stake",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  117,
+                  115,
+                  101,
+                  114,
+                  95,
+                  115,
+                  116,
+                  97,
+                  107,
+                  101,
+                  95,
+                  118,
+                  50
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_token_account",
+          "writable": true
+        },
+        {
+          "name": "reward_vault",
+          "writable": true
+        },
+        {
+          "name": "platform_treasury",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "claim_vested",
+      "discriminator": [
+        208,
+        190,
+        166,
+        114,
+        203,
+        225,
+        140,
+        208
+      ],
+      "accounts": [
+        {
+          "name": "beneficiary",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "schedule",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  118,
+                  101,
+                  115,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "schedule.beneficiary",
+                "account": "VestingSchedule"
+              },
+              {
+                "kind": "account",
+                "path": "schedule.mint",
+                "account": "VestingSchedule"
+              },
+              {
+                "kind": "account",
+                "path": "schedule.schedule_id",
+                "account": "VestingSchedule"
+              }
+            ]
+          }
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "beneficiary_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "create_pool",
+      "discriminator": [
+        233,
+        146,
+        209,
+        142,
+        207,
+        104,
+        64,
+        188
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "docs": [
+            "Must be the PLATFORM admin — checked against PlatformConfig.admin",
+            "below. This is the ONLY wallet ever able to call create_pool.",
+            "Partner communities never call this themselves, even for their",
+            "own pool — pool creation is a manual, relationship-driven action."
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  108,
+                  97,
+                  116,
+                  102,
+                  111,
+                  114,
+                  109,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "stake_mint"
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "stake_mint"
+              },
+              {
+                "kind": "arg",
+                "path": "pool_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "stake_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  115,
+                  116,
+                  97,
+                  107,
+                  101,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "platform_treasury"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "pool_id",
+          "type": "u64"
+        },
+        {
+          "name": "initial_reward_rate_per_sec",
+          "type": "u64"
+        },
+        {
+          "name": "base_stake_fee_bps",
+          "type": "u16"
+        },
+        {
+          "name": "base_claim_fee_bps",
+          "type": "u16"
+        },
+        {
+          "name": "pool_admin",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "create_vesting",
+      "discriminator": [
+        135,
+        184,
+        171,
+        156,
+        197,
+        162,
+        246,
+        44
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "beneficiary"
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "schedule",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  118,
+                  101,
+                  115,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "beneficiary"
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              },
+              {
+                "kind": "arg",
+                "path": "schedule_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  118,
+                  101,
+                  115,
+                  116,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "schedule"
+              }
+            ]
+          }
+        },
+        {
+          "name": "admin_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "schedule_id",
+          "type": "u64"
+        },
+        {
+          "name": "total_amount",
+          "type": "u64"
+        },
+        {
+          "name": "start_ts",
+          "type": "i64"
+        },
+        {
+          "name": "cliff_ts",
+          "type": "i64"
+        },
+        {
+          "name": "end_ts",
+          "type": "i64"
+        },
+        {
+          "name": "revocable",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "donate",
+      "discriminator": [
+        121,
+        186,
+        218,
+        211,
+        73,
+        70,
+        196,
+        180
+      ],
+      "accounts": [
+        {
+          "name": "donor",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              },
+              {
+                "kind": "account",
+                "path": "pool.pool_id",
+                "account": "StakePool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "donor_token_account",
+          "writable": true
+        },
+        {
+          "name": "reward_vault",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "fund_rewards",
+      "discriminator": [
+        114,
+        64,
+        163,
+        112,
+        175,
+        167,
+        19,
+        121
+      ],
+      "accounts": [
+        {
+          "name": "funder",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              },
+              {
+                "kind": "account",
+                "path": "pool.pool_id",
+                "account": "StakePool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "funder_token_account",
+          "writable": true
+        },
+        {
+          "name": "reward_vault",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "init_platform_config",
+      "discriminator": [
+        101,
+        52,
+        47,
+        49,
+        156,
+        16,
+        32,
+        118
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "main_wtf_pool",
+          "docs": [
+            "deterministic PDA of your main WTF pool BEFORE that pool exists —",
+            "it doesn't need to be created yet for this call to succeed."
+          ]
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  108,
+                  97,
+                  116,
+                  102,
+                  111,
+                  114,
+                  109,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "init_presale",
+      "discriminator": [
+        172,
+        248,
+        47,
+        226,
+        223,
+        52,
+        94,
+        217
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "sol_treasury"
+        },
+        {
+          "name": "presale",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  114,
+                  101,
+                  115,
+                  97,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  114,
+                  101,
+                  115,
+                  97,
+                  108,
+                  101,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "presale"
+              }
+            ]
+          }
+        },
+        {
+          "name": "admin_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "price_lamports_per_1e9_units",
+          "type": "u64"
+        },
+        {
+          "name": "start_ts",
+          "type": "i64"
+        },
+        {
+          "name": "end_ts",
+          "type": "i64"
+        },
+        {
+          "name": "hard_cap_tokens",
+          "type": "u64"
+        },
+        {
+          "name": "vesting_cliff_seconds",
+          "type": "i64"
+        },
+        {
+          "name": "vesting_duration_seconds",
+          "type": "i64"
+        },
+        {
+          "name": "boost_multiplier_bps",
+          "type": "u16"
+        },
+        {
+          "name": "boost_duration_seconds",
+          "type": "i64"
+        },
+        {
+          "name": "fund_amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "init_reward_vault",
+      "discriminator": [
+        183,
+        229,
+        185,
+        247,
+        110,
+        114,
+        179,
+        1
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  108,
+                  97,
+                  116,
+                  102,
+                  111,
+                  114,
+                  109,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "pool",
+          "writable": true
+        },
+        {
+          "name": "stake_mint"
+        },
+        {
+          "name": "reward_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  114,
+                  101,
+                  119,
+                  97,
+                  114,
+                  100,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "propose_admin",
+      "discriminator": [
+        121,
+        214,
+        199,
+        212,
+        87,
+        39,
+        117,
+        234
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              },
+              {
+                "kind": "account",
+                "path": "pool.pool_id",
+                "account": "StakePool"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "proposed_admin",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "refresh_position",
+      "discriminator": [
+        198,
+        60,
+        142,
+        140,
+        104,
+        224,
+        113,
+        50
+      ],
+      "accounts": [
+        {
+          "name": "caller",
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              },
+              {
+                "kind": "account",
+                "path": "pool.pool_id",
+                "account": "StakePool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_stake",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  117,
+                  115,
+                  101,
+                  114,
+                  95,
+                  115,
+                  116,
+                  97,
+                  107,
+                  101,
+                  95,
+                  118,
+                  50
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "user_stake.owner",
+                "account": "UserStake"
+              }
+            ]
+          }
+        },
+        {
+          "name": "position",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "slot",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "renounce_admin",
+      "discriminator": [
+        223,
+        213,
+        55,
+        194,
+        0,
+        108,
+        225,
+        137
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              },
+              {
+                "kind": "account",
+                "path": "pool.pool_id",
+                "account": "StakePool"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "revoke_vesting",
+      "discriminator": [
+        12,
+        252,
+        252,
+        168,
+        39,
+        101,
+        98,
+        9
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true
+        },
+        {
+          "name": "schedule",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  118,
+                  101,
+                  115,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "schedule.beneficiary",
+                "account": "VestingSchedule"
+              },
+              {
+                "kind": "account",
+                "path": "schedule.mint",
+                "account": "VestingSchedule"
+              },
+              {
+                "kind": "account",
+                "path": "schedule.schedule_id",
+                "account": "VestingSchedule"
+              }
+            ]
+          }
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "admin_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "set_launch_bonus",
+      "discriminator": [
+        76,
+        205,
+        170,
+        224,
+        15,
+        2,
+        170,
+        19
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              },
+              {
+                "kind": "account",
+                "path": "pool.pool_id",
+                "account": "StakePool"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "bonus_bps",
+          "type": "u16"
+        },
+        {
+          "name": "duration_seconds",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "set_main_pool",
+      "discriminator": [
+        124,
+        154,
+        36,
+        29,
+        105,
+        170,
+        7,
+        82
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true
+        },
+        {
+          "name": "main_wtf_pool"
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  108,
+                  97,
+                  116,
+                  102,
+                  111,
+                  114,
+                  109,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "set_paused",
+      "discriminator": [
+        91,
+        60,
+        125,
+        192,
+        176,
+        225,
+        166,
+        218
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              },
+              {
+                "kind": "account",
+                "path": "pool.pool_id",
+                "account": "StakePool"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "paused",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "set_presale_launch",
+      "discriminator": [
+        42,
+        165,
+        224,
+        31,
+        184,
+        39,
+        247,
+        43
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true
+        },
+        {
+          "name": "presale",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  114,
+                  101,
+                  115,
+                  97,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "presale.mint",
+                "account": "PresaleConfig"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "launch_ts",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "set_reward_rate",
+      "discriminator": [
+        253,
+        201,
+        190,
+        20,
+        48,
+        38,
+        120,
+        34
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              },
+              {
+                "kind": "account",
+                "path": "pool.pool_id",
+                "account": "StakePool"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "new_rate_per_sec",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "stake",
+      "discriminator": [
+        206,
+        176,
+        202,
+        18,
+        200,
+        209,
+        179,
+        108
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              },
+              {
+                "kind": "account",
+                "path": "pool.pool_id",
+                "account": "StakePool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_stake",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  117,
+                  115,
+                  101,
+                  114,
+                  95,
+                  115,
+                  116,
+                  97,
+                  107,
+                  101,
+                  95,
+                  118,
+                  50
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "position",
+          "writable": true
+        },
+        {
+          "name": "user_token_account",
+          "writable": true
+        },
+        {
+          "name": "stake_vault",
+          "writable": true
+        },
+        {
+          "name": "platform_treasury",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "lock_tier_index",
+          "type": "u8"
+        },
+        {
+          "name": "slot",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "unstake",
+      "discriminator": [
+        90,
+        95,
+        107,
+        42,
+        205,
+        124,
+        50,
+        225
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool.stake_mint",
+                "account": "StakePool"
+              },
+              {
+                "kind": "account",
+                "path": "pool.pool_id",
+                "account": "StakePool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_stake",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  116,
+                  102,
+                  95,
+                  117,
+                  115,
+                  101,
+                  114,
+                  95,
+                  115,
+                  116,
+                  97,
+                  107,
+                  101,
+                  95,
+                  118,
+                  50
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "position",
+          "writable": true
+        },
+        {
+          "name": "user_token_account",
+          "writable": true
+        },
+        {
+          "name": "stake_vault",
+          "writable": true
+        },
+        {
+          "name": "reward_vault",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "slot",
+          "type": "u8"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "InvestorRecord",
+      "discriminator": [
+        170,
+        144,
+        39,
+        68,
+        178,
+        31,
+        194,
+        117
+      ]
+    },
+    {
+      "name": "PlatformConfig",
+      "discriminator": [
+        160,
+        78,
+        128,
+        0,
+        248,
+        83,
+        230,
+        160
+      ]
+    },
+    {
+      "name": "PresaleConfig",
+      "discriminator": [
+        115,
+        71,
+        85,
+        233,
+        246,
+        108,
+        30,
+        3
+      ]
+    },
+    {
+      "name": "StakePool",
+      "discriminator": [
+        121,
+        34,
+        206,
+        21,
+        79,
+        127,
+        255,
+        28
+      ]
+    },
+    {
+      "name": "StakePosition",
+      "discriminator": [
+        78,
+        165,
+        30,
+        111,
+        171,
+        125,
+        11,
+        220
+      ]
+    },
+    {
+      "name": "UserStake",
+      "discriminator": [
+        102,
+        53,
+        163,
+        107,
+        9,
+        138,
+        87,
+        153
+      ]
+    },
+    {
+      "name": "VestingSchedule",
+      "discriminator": [
+        130,
+        200,
+        173,
+        148,
+        39,
+        75,
+        243,
+        147
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "DonationMade",
+      "discriminator": [
+        181,
+        70,
+        105,
+        197,
+        198,
+        205,
+        198,
+        197
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "ZeroAmount",
+      "msg": "Amount must be greater than zero."
+    },
+    {
+      "code": 6001,
+      "name": "InsufficientStake",
+      "msg": "Insufficient staked balance for this unstake amount."
+    },
+    {
+      "code": 6002,
+      "name": "RewardRateTooHigh",
+      "msg": "Reward rate exceeds the maximum allowed value."
+    },
+    {
+      "code": 6003,
+      "name": "MathOverflow",
+      "msg": "Math operation overflowed."
+    },
+    {
+      "code": 6004,
+      "name": "Unauthorized",
+      "msg": "Only the pool admin can perform this action."
+    },
+    {
+      "code": 6005,
+      "name": "AdminRenounced",
+      "msg": "Admin authority has been renounced; this action is permanently disabled."
+    },
+    {
+      "code": 6006,
+      "name": "InsufficientRewardVault",
+      "msg": "Reward vault does not have enough funds to pay this claim."
+    },
+    {
+      "code": 6007,
+      "name": "PoolPaused",
+      "msg": "Pool is currently paused."
+    },
+    {
+      "code": 6008,
+      "name": "InvalidStakeMint",
+      "msg": "Provided token mint does not match the pool's staking mint."
+    },
+    {
+      "code": 6009,
+      "name": "InvalidVaultAccount",
+      "msg": "Provided vault account does not match the pool's expected vault."
+    },
+    {
+      "code": 6010,
+      "name": "NoRewardsAvailable",
+      "msg": "Nothing to claim right now."
+    },
+    {
+      "code": 6011,
+      "name": "DonationTooSmall",
+      "msg": "Donation amount too small to be worth recording."
+    },
+    {
+      "code": 6012,
+      "name": "InvalidLockTier",
+      "msg": "Invalid lock tier index. Must be between 1 (1 day) and 6 (1 year)."
+    },
+    {
+      "code": 6013,
+      "name": "LockTierConflict",
+      "msg": "Cannot select a different lock tier while a stronger lock is still active. Wait for it to expire, or unstake fully first."
+    },
+    {
+      "code": 6014,
+      "name": "VestingFullyClaimed",
+      "msg": "Vesting schedule has already been fully claimed."
+    },
+    {
+      "code": 6015,
+      "name": "NothingVestedYet",
+      "msg": "Nothing is currently claimable — you're still inside the cliff period."
+    },
+    {
+      "code": 6016,
+      "name": "NotRevocable",
+      "msg": "This vesting schedule is not revocable."
+    },
+    {
+      "code": 6017,
+      "name": "AlreadyRevoked",
+      "msg": "This vesting schedule has already been revoked."
+    },
+    {
+      "code": 6018,
+      "name": "InvalidVestingSchedule",
+      "msg": "Vesting end time must be after start time, and cliff must fall within that range."
+    },
+    {
+      "code": 6019,
+      "name": "PresaleNotStarted",
+      "msg": "Presale has not started yet."
+    },
+    {
+      "code": 6020,
+      "name": "PresaleEnded",
+      "msg": "Presale has already ended."
+    },
+    {
+      "code": 6021,
+      "name": "PresaleHardCapExceeded",
+      "msg": "This purchase would exceed the presale hard cap."
+    },
+    {
+      "code": 6022,
+      "name": "PresaleAmountTooSmall",
+      "msg": "SOL amount is too small to purchase any tokens at the current price."
+    },
+    {
+      "code": 6023,
+      "name": "BoostAlreadyActivated",
+      "msg": "Investor boost has already been activated for this stake position."
+    },
+    {
+      "code": 6024,
+      "name": "InvestorRecordMismatch",
+      "msg": "This investor record does not belong to the caller."
+    },
+    {
+      "code": 6025,
+      "name": "PlatformFeeTooHigh",
+      "msg": "Platform fee exceeds the maximum allowed rate."
+    },
+    {
+      "code": 6026,
+      "name": "NotMainPoolStake",
+      "msg": "This UserStake account does not belong to the main WTF pool."
+    },
+    {
+      "code": 6027,
+      "name": "PoolCreationNotAuthorized",
+      "msg": "Only the platform admin can create new staking pools."
+    },
+    {
+      "code": 6028,
+      "name": "PositionOccupied",
+      "msg": "That position slot already holds a stake. Pick an empty slot (0-4)."
+    },
+    {
+      "code": 6029,
+      "name": "InvalidPositionSlot",
+      "msg": "Invalid position slot. Must be between 0 and 4."
+    },
+    {
+      "code": 6030,
+      "name": "PositionEmpty",
+      "msg": "This position is empty."
+    },
+    {
+      "code": 6031,
+      "name": "PositionMismatch",
+      "msg": "Position does not belong to this user and pool."
+    },
+    {
+      "code": 6032,
+      "name": "LaunchBonusTooHigh",
+      "msg": "Launch bonus or duration exceeds the allowed maximum."
+    },
+    {
+      "code": 6033,
+      "name": "LaunchNotSet",
+      "msg": "The presale launch time has not been set yet."
+    },
+    {
+      "code": 6034,
+      "name": "BoostWindowClosed",
+      "msg": "The investor boost is not active yet or has already ended."
+    },
+    {
+      "code": 6035,
+      "name": "PresaleAdminOnly",
+      "msg": "Only the presale admin can do this."
+    }
+  ],
+  "types": [
+    {
+      "name": "DonationMade",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "pool",
+            "type": "pubkey"
+          },
+          {
+            "name": "donor",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "new_total_donated",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InvestorRecord",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "buyer",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_purchased",
+            "type": "u64"
+          },
+          {
+            "name": "first_purchase_ts",
+            "type": "i64"
+          },
+          {
+            "name": "boost_multiplier_bps",
+            "type": "u16"
+          },
+          {
+            "name": "boost_expires_ts",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "_reserved",
+            "type": {
+              "array": [
+                "u8",
+                16
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "PlatformConfig",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "main_wtf_pool",
+            "type": "pubkey"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "_reserved",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "PresaleConfig",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "sol_treasury",
+            "type": "pubkey"
+          },
+          {
+            "name": "token_vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "price_lamports_per_1e9_units",
+            "type": "u64"
+          },
+          {
+            "name": "start_ts",
+            "type": "i64"
+          },
+          {
+            "name": "end_ts",
+            "type": "i64"
+          },
+          {
+            "name": "hard_cap_tokens",
+            "type": "u64"
+          },
+          {
+            "name": "total_sold",
+            "type": "u64"
+          },
+          {
+            "name": "vesting_cliff_seconds",
+            "type": "i64"
+          },
+          {
+            "name": "vesting_duration_seconds",
+            "type": "i64"
+          },
+          {
+            "name": "boost_multiplier_bps",
+            "type": "u16"
+          },
+          {
+            "name": "boost_duration_seconds",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "token_vault_bump",
+            "type": "u8"
+          },
+          {
+            "name": "launch_ts",
+            "docs": [
+              "Unix time the token launched (0 = not set yet). Investor boost runs from here."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "_reserved",
+            "type": {
+              "array": [
+                "u8",
+                24
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "StakePool",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "pool_id",
+            "type": "u64"
+          },
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "pending_admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "stake_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "stake_vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "reward_vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "base_stake_fee_bps",
+            "type": "u16"
+          },
+          {
+            "name": "base_claim_fee_bps",
+            "type": "u16"
+          },
+          {
+            "name": "discounted_stake_fee_bps",
+            "type": "u16"
+          },
+          {
+            "name": "discounted_claim_fee_bps",
+            "type": "u16"
+          },
+          {
+            "name": "fee_discount_expires_ts",
+            "type": "i64"
+          },
+          {
+            "name": "platform_treasury",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_staked",
+            "type": "u64"
+          },
+          {
+            "name": "total_shares",
+            "type": "u128"
+          },
+          {
+            "name": "reward_rate_per_sec",
+            "type": "u64"
+          },
+          {
+            "name": "acc_reward_per_share",
+            "type": "u128"
+          },
+          {
+            "name": "last_update_ts",
+            "type": "i64"
+          },
+          {
+            "name": "total_donated",
+            "type": "u64"
+          },
+          {
+            "name": "total_penalties_collected",
+            "type": "u64"
+          },
+          {
+            "name": "total_platform_stake_fees_collected",
+            "type": "u64"
+          },
+          {
+            "name": "total_platform_claim_fees_collected",
+            "type": "u64"
+          },
+          {
+            "name": "launch_bonus_bps",
+            "type": "u16"
+          },
+          {
+            "name": "launch_bonus_end_ts",
+            "type": "i64"
+          },
+          {
+            "name": "paused",
+            "type": "bool"
+          },
+          {
+            "name": "admin_renounced",
+            "type": "bool"
+          },
+          {
+            "name": "pool_bump",
+            "type": "u8"
+          },
+          {
+            "name": "stake_vault_bump",
+            "type": "u8"
+          },
+          {
+            "name": "reward_vault_bump",
+            "type": "u8"
+          },
+          {
+            "name": "_reserved",
+            "type": {
+              "array": [
+                "u8",
+                4
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "StakePosition",
+      "docs": [
+        "One independent locked deposit. Each user can hold up to MAX_POSITIONS",
+        "per pool (slots 0..MAX_POSITIONS-1). A slot is free when amount == 0."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "pool",
+            "type": "pubkey"
+          },
+          {
+            "name": "slot",
+            "type": "u8"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "lock_tier",
+            "type": "u8"
+          },
+          {
+            "name": "lock_end_ts",
+            "type": "i64"
+          },
+          {
+            "name": "weight",
+            "docs": [
+              "amount * (1 + lock bonus) as last computed; included in UserStake.lock_shares."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "launch_bonus_bps",
+            "docs": [
+              "Launch bonus (bps over 1x) captured when this position was staked."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "_reserved",
+            "type": {
+              "array": [
+                "u8",
+                6
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserStake",
+      "docs": [
+        "Per-user, per-pool summary. Holds pending rewards, the investor boost and",
+        "the running totals. The individual locked deposits live in `StakePosition`."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "pool",
+            "type": "pubkey"
+          },
+          {
+            "name": "staked_amount",
+            "docs": [
+              "Sum of all positions' amounts."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "shares",
+            "docs": [
+              "Total reward shares = lock_shares + investor-boost shares."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "lock_shares",
+            "docs": [
+              "Sum of every position's lock-weighted amount (see StakePosition.weight)."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "reward_debt",
+            "type": "u128"
+          },
+          {
+            "name": "pending_rewards",
+            "type": "u64"
+          },
+          {
+            "name": "boost_multiplier_bps",
+            "type": "u16"
+          },
+          {
+            "name": "boost_expires_ts",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "_reserved",
+            "type": {
+              "array": [
+                "u8",
+                16
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "VestingSchedule",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "schedule_id",
+            "type": "u64"
+          },
+          {
+            "name": "beneficiary",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_amount",
+            "type": "u64"
+          },
+          {
+            "name": "released_amount",
+            "type": "u64"
+          },
+          {
+            "name": "start_ts",
+            "type": "i64"
+          },
+          {
+            "name": "cliff_ts",
+            "type": "i64"
+          },
+          {
+            "name": "end_ts",
+            "type": "i64"
+          },
+          {
+            "name": "revocable",
+            "type": "bool"
+          },
+          {
+            "name": "revoked",
+            "type": "bool"
+          },
+          {
+            "name": "revoked_ts",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "vault_bump",
+            "type": "u8"
+          },
+          {
+            "name": "_reserved",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

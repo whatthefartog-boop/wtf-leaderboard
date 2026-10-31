@@ -1,0 +1,23 @@
+{
+  "program_id": "5nnC6k6oJ5av7Ldm7EhS15JNXF4fpUPcUpYmb1gnTzbH",
+  "env_file": "/mnt/c/Users/18134/wtf-secrets/trench.env",
+  "beacon_url": "https://beaconbot.wtf/api/public/community-stats",
+  "clip_url": "https://wtfclip.wtf/api/community-stats",
+  "weights": {
+    "staking": 0.45,
+    "beacon": 0.3,
+    "clip": 0.25
+  },
+  "min_unique_stakers": 1,
+  "max_share": 0.4,
+  "min_share": 0.02,
+  "beacon_checkin_cap_vs_stakers": 5,
+  "beacon_map": {},
+  "names": {
+    "4mBatSKvYUNELBVoR4zwK46Z6oYjqmrFzGqRtzMCcxuu": "WTF",
+    "7Z8iNwQ7vt4vBDfa3Yj7bWfZtiLva7EV3DD8CD3zym5W": "PTT"
+  },
+  "clip_map": {
+    "What The Fart?": "4mBatSKvYUNELBVoR4zwK46Z6oYjqmrFzGqRtzMCcxuu"
+  }
+}

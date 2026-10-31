@@ -1,0 +1,13 @@
+{
+  "name": "wtf-leaderboard",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.30.1",
+    "@solana/spl-token": "^0.4.8",
+    "@solana/web3.js": "^1.95.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^4.9.5",
+    "@types/node": "^18.19.0"
+  }
+}
