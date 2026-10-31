@@ -1,0 +1,34 @@
+name: Trench Score weekly
+on:
+  schedule:
+    - cron: "30 0 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - name: Run Trench Score
+        env:
+          HELIUS_RPC: ${{ secrets.HELIUS_RPC }}
+          BEACON_STATS_KEY: ${{ secrets.BEACON_STATS_KEY }}
+          CLIP_STATS_KEY: ${{ secrets.CLIP_STATS_KEY }}
+        run: npx ts-node --transpile-only scripts/trench_score.ts
+      - name: Publish latest.json
+        run: |
+          f=$(ls -t scripts/trench-out/trench_*.json | grep -v SAMPLE | head -1)
+          mkdir -p data
+          cp "$f" data/latest.json
+          cp "$f" "data/$(basename "$f")"
+          cp "${f%.json}.html" data/latest.html
+          git config user.name "trench-bot"
+          git config user.email "trench-bot@users.noreply.github.com"
+          git add data
+          git commit -m "Trench Score update" || echo "nothing new"
+          git push
