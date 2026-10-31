@@ -1,0 +1,106 @@
+{
+  "range": {
+    "from": "2026-10-24",
+    "to": "2026-10-30"
+  },
+  "weights": {
+    "staking": 0.45,
+    "beacon": 0.3,
+    "clip": 0.25
+  },
+  "communities": [
+    {
+      "mint": "Chs2ooYXq44Rf52QczJEp27kVPvdgM9QBP1Ltw2tJM7T",
+      "name": "Chs2...JM7T",
+      "unique_stakers": 1,
+      "weighted_tokens": 5302550,
+      "total_staked_tokens": 2619500,
+      "staking_part": 1,
+      "beacon_part": 0,
+      "clip_part": 0,
+      "score": 0.45,
+      "eligible": true,
+      "share": 0.39486183110619266,
+      "notes": []
+    },
+    {
+      "mint": "7Z8iNwQ7vt4vBDfa3Yj7bWfZtiLva7EV3DD8CD3zym5W",
+      "name": "PTT",
+      "unique_stakers": 1,
+      "weighted_tokens": 7920,
+      "total_staked_tokens": 4950,
+      "staking_part": 0.5193236965515973,
+      "beacon_part": 0,
+      "clip_part": 0,
+      "score": 0.23369566344821877,
+      "eligible": true,
+      "share": 0.20506110575720043,
+      "notes": []
+    },
+    {
+      "mint": "4mBatSKvYUNELBVoR4zwK46Z6oYjqmrFzGqRtzMCcxuu",
+      "name": "What The Fart?",
+      "unique_stakers": 1,
+      "weighted_tokens": 3700,
+      "total_staked_tokens": 2000,
+      "staking_part": 0.513207739061038,
+      "beacon_part": 0,
+      "clip_part": 0,
+      "score": 0.2309434825774671,
+      "eligible": true,
+      "share": 0.2026461475835106,
+      "notes": [],
+      "clip": {
+        "project_id": "ff4bb9ff-8729-4940-bc7e-ff8eff54fa6f",
+        "project_name": "What The Fart?",
+        "ticker": "WTF",
+        "chain": "solana",
+        "token_mint_address": null,
+        "x_handle": null,
+        "spaces_recorded": 0,
+        "total_recorded_minutes": 0,
+        "unique_hosts": 0,
+        "clips_created": 0,
+        "avg_listeners": null,
+        "peak_listeners": null,
+        "listeners_note": "Listener counts are not captured for recordings.",
+        "project_followers_total": 0,
+        "new_followers_in_range": 0,
+        "report_cards_count": 0,
+        "average_grade_score": null,
+        "average_grade_letter": null,
+        "recordings_source_ok": true
+      }
+    },
+    {
+      "mint": "7QfA5wozmBR25PpJwGoEe5VrJCyFXB7TeYeA53G3FVk4",
+      "name": "7QfA...FVk4",
+      "unique_stakers": 1,
+      "weighted_tokens": 0,
+      "total_staked_tokens": 0,
+      "staking_part": 0.5,
+      "beacon_part": 0,
+      "clip_part": 0,
+      "score": 0.225,
+      "eligible": true,
+      "share": 0.19743091555309633,
+      "notes": []
+    },
+    {
+      "mint": "3SqwBfs8Sm4ukjoQ47us9JzMCayiZRBCiqMngU5d9k8b",
+      "name": "3Sqw...9k8b",
+      "unique_stakers": 0,
+      "weighted_tokens": 0,
+      "total_staked_tokens": 0,
+      "staking_part": 0,
+      "beacon_part": 0,
+      "clip_part": 0,
+      "score": 0,
+      "eligible": false,
+      "share": 0,
+      "notes": [
+        "Needs at least 1 unique stakers to earn"
+      ]
+    }
+  ]
+}
